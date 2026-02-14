@@ -37,7 +37,7 @@ import random
 screen = Screen()
 screen.colormode(255)
 
-angles = [0, 90, 180, 270]
+# angles = [0, 90, 180, 270]
 # colors = ["Indigo", "Purple", "MediumPurple", "DarkSlateBlue", "SlateBlue", "MediumSlateBlue", "Plum"]
 
 def random_color():
@@ -46,14 +46,25 @@ def random_color():
     b = random.randint(0, 255)
     color = (r, g, b)
     return color
+#
+# timmy_the_turtle.speed(0)
+# timmy_the_turtle.pensize(10)
+# for _ in range(500):
+#     timmy_the_turtle.pencolor(random_color())
+#     timmy_the_turtle.forward(30)
+#     timmy_the_turtle.setheading(random.choice(angles))
 
+# === Spirograph ===
 timmy_the_turtle.speed(0)
-timmy_the_turtle.pensize(10)
-for _ in range(500):
-    timmy_the_turtle.pencolor(random_color())
-    timmy_the_turtle.forward(30)
-    timmy_the_turtle.setheading(random.choice(angles))
 
+def draw_spirograph(size_of_gap):
+    for i in range(int(360 / size_of_gap)):
+        timmy_the_turtle.color(random_color())
+        timmy_the_turtle.circle(100)
+        timmy_the_turtle.right(size_of_gap)
+
+# draw_spirograph(5)
+draw_spirograph(7)
 
 
 screen.tracer(0)
