@@ -34,18 +34,28 @@ timmy_the_turtle.color("MediumSlateBlue")
 # Random Walk
 import random
 
-# funcs = [timmy_the_turtle.right, timmy_the_turtle.left]
+screen = Screen()
+screen.colormode(255)
+
 angles = [0, 90, 180, 270]
-colors = ["Indigo", "Purple", "MediumPurple", "DarkSlateBlue", "SlateBlue", "MediumSlateBlue", "Plum"]
+# colors = ["Indigo", "Purple", "MediumPurple", "DarkSlateBlue", "SlateBlue", "MediumSlateBlue", "Plum"]
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    color = (r, g, b)
+    return color
 
 timmy_the_turtle.speed(0)
-timmy_the_turtle.pensize(5)
+timmy_the_turtle.pensize(10)
 for _ in range(500):
-    timmy_the_turtle.color(random.choice(colors))
-    timmy_the_turtle.forward(10)
+    timmy_the_turtle.pencolor(random_color())
+    timmy_the_turtle.forward(30)
     timmy_the_turtle.setheading(random.choice(angles))
 
 
-screen = Screen()
+
 screen.tracer(0)
+
 screen.exitonclick()
