@@ -1,9 +1,10 @@
 # TODO
 # 1. Create a snake body
-from turtle import Turtle, Screen
+from turtle import Screen
 import time
 
 from snake import Snake
+from food import Food
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -12,6 +13,7 @@ screen.title("Snake Game")
 screen.tracer(0)
 
 snake = Snake()
+food = Food()
 
 screen.listen()
 # 3. Control the snake
@@ -28,10 +30,12 @@ while game_is_on:
     time.sleep(0.3)
     snake.move_snake()
 
-    # if list_segment[0].position() == (300, 0):
-    #         game_is_on = False
+    # 4. Detect collision with food
+    if snake.head.distance(food) < 15:
+        food.refresh()
 
-# 4. Detect collision with food
+
+
 # 5. Create a scoreboard
 # 6. Detect collision with wall
 # 7. Detect collision with tail
