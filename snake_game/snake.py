@@ -1,12 +1,17 @@
 from turtle import Turtle
 
 STEP = 20
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 class Snake:
 
     def __init__(self):
         self.list_segments = []
         self.create_snake()
+        self.head = self.list_segments[0]
 
     def create_snake(self):
         for i in range(3):
@@ -23,4 +28,20 @@ class Snake:
             new_y = self.list_segments[num_seg - 1].ycor()
             self.list_segments[num_seg].goto(new_x, new_y)
 
-        self.list_segments[0].forward(STEP)
+        self.head.forward(STEP)
+
+    def up(self):
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
+
+    def down(self):
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
+
+    def left(self):
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
+
+    def right(self):
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
